@@ -1,4 +1,4 @@
-<?php
+<?php/*
 if (isset($_POST['g-recaptcha-response']) && $_POST['g-recaptcha-response']) {
   $secret = '6LesDnccAAAAAAaeCaVG8MVfAZ5WegYe9vwB9Mmi';
   $ip = $_SERVER['REMOTE_ADDR'];
@@ -8,7 +8,7 @@ if (isset($_POST['g-recaptcha-response']) && $_POST['g-recaptcha-response']) {
   if ($arr['success']) {
     ...
   }
-}
+}*/
 ?>
 
 
