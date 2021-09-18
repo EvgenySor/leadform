@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
+		<script src='https://www.google.com/recaptcha/api.js'></script>
 		<META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Web-to-lead form</title>
@@ -19,7 +20,7 @@
 				</div>
 				<form class="card-form" action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST">
 					<input type=hidden name="oid" value="00D5g00000BjEwz">
-					<input type=hidden name="retURL" value="https://leadform2.herokuapp.com">
+					<input type=hidden name="retURL" value="http://google.com">
 					<div class="input">
 						<input id="first_name" maxlength="40" name="first_name" size="20" type="text" class="input-field" required/>
 						<label for="first_name">First Name</label>
@@ -77,11 +78,17 @@
 						</select>
 						<label>Product:</label>
 					</div>
+					<div class="input">
+						<div class="g-recaptcha" data-sitekey="6LesDnccAAAAAOKU6_Pqt_fbnkNi5Oht3ADPT8Bu"></div>
+					</div>
 					<div class="action">
 						<input type="submit" name="submit" class="action-button">
 					</div>
 				</form>
 			</div>
 		</div>
+		<div class="text-danger" id="recaptchaError"></div>
 	</body>
 </html>
+
+
