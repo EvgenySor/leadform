@@ -1,3 +1,5 @@
+<?php echo "<h1>PHP test</h1>"?>
+
 <!--  ----------------------------------------------------------------------  -->
 <!--  NOTE: Please add the following <META> element to your page <HEAD>.      -->
 <!--  If necessary, please modify the charset parameter to specify the        -->
