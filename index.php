@@ -10,6 +10,16 @@
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
 	</head>
 	<body>
+
+		<div class="form-group">
+			<label for="first_name">First Name</label>
+			<input  id="first_name" maxlength="40" name="first_name" size="20" type="text" class="form-control"/>
+			<label for="last_name">Last Name</label>
+			<input  id="last_name" maxlength="80" name="last_name" size="20" type="text" class="form-control"/>
+		</div>
+
+
+
 		<form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST">
 
 			<input type=hidden name="oid" value="00D5g00000BjEwz">
@@ -21,8 +31,7 @@
 		<!--  <input type="hidden" name="debugEmail" value="sorgena2000@gmail.com">   -->
 		<!--  ----------------------------------------------------------------------  -->
 			<label for="company">Company</label><input  id="company" maxlength="40" name="company" size="20" type="text" /><br>
-			<label for="first_name">First Name</label><input  id="first_name" maxlength="40" name="first_name" size="20" type="text" /><br>
-			<label for="last_name">Last Name</label><input  id="last_name" maxlength="80" name="last_name" size="20" type="text" /><br>
+			
 			<label for="email">Email</label><input  id="email" maxlength="80" name="email" size="20" type="text" /><br>
 			<label for="phone">Phone</label><input  id="phone" maxlength="40" name="phone" size="20" type="text" /><br>
 			Product:<select  id="00N5g00000OghtZ" name="00N5g00000OghtZ" title="Product">
