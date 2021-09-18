@@ -38,8 +38,11 @@ if (!$_POST["g-recaptcha-response"]) {
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<script src='https://www.google.com/recaptcha/api.js'></script>
 		<META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8">
+		<script src="https://www.google.com/recaptcha/api.js"></script>
+		<script>
+		 function timestamp() { var response = document.getElementById("g-recaptcha-response"); if (response == null || response.value.trim() == "") {var elems = JSON.parse(document.getElementsByName("captcha_settings")[0].value);elems["ts"] = JSON.stringify(new Date().getTime());document.getElementsByName("captcha_settings")[0].value = JSON.stringify(elems); } } setInterval(timestamp, 500); 
+		</script>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Web-to-lead form</title>
 		<!-- CSS bootstrap -->
@@ -56,8 +59,10 @@ if (!$_POST["g-recaptcha-response"]) {
 					</h2>
 				</div>
 				<form class="card-form" action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST">
+					<input type=hidden name='captcha_settings' value='{"keyname":"leadform","fallback":"true","orgId":"00D5g00000BjEwz","ts":""}'>
 					<input type=hidden name="oid" value="00D5g00000BjEwz">
-					<input type=hidden name="retURL" value="https://leadform2.herokuapp.com/">
+					<input type=hidden name="retURL" value="https://leadform2.herokuapp.com">
+
 					<div class="input">
 						<input id="first_name" maxlength="40" name="first_name" size="20" type="text" class="input-field" required/>
 						<label for="first_name">First Name</label>
