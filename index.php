@@ -92,8 +92,9 @@
 					<script>
 					document.getElementById('card-form-id').onsubmit = function () {
 					    if (!grecaptcha.getResponse()) {
-					         alert('Вы не заполнили recaptcha!');
-					         return false; // возвращаем false и предотвращаем отправку формы
+					    	swal("Attention!", "Click on the Recaptcha");
+					        alert('Вы не заполнили recaptcha!');
+					        return false; // возвращаем false и предотвращаем отправку формы
 					    }
 					}
 					</script>
@@ -101,5 +102,6 @@
 			</div>
 		</div>
 		<div class="text-danger" id="recaptchaError"></div>
+		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 	</body>
 </html>
