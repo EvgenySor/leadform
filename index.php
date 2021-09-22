@@ -92,8 +92,7 @@
 					<script>
 					document.getElementById('card-form-id').onsubmit = function () {
 					    if (!grecaptcha.getResponse()) {
-					    	swal("Attention!", "Click on the Recaptcha");
-					        alert('Вы не заполнили recaptcha!');
+					    	swal("Attention!", "Click on the Recaptcha", "Warning");
 					        return false; // возвращаем false и предотвращаем отправку формы
 					    }
 					}
