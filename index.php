@@ -93,7 +93,15 @@
 			</div>
 		</div>
 		<div class="text-danger" id="recaptchaError"></div>
+		<script>
+			function check() {
+			if (grecaptcha.getResponse() == "") {
+    			alert("Подтвердите, что Вы не являетесь роботом!");
+    			return false;
+			} else {
+    			alert("Спасибо что прошли проверку!");
+    			return true;
+			}}
+		</script>	
 	</body>
 </html>
-
-
