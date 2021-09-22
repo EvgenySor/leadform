@@ -21,7 +21,7 @@
 						<small>Fill in the fields to receive feedback</small>
 					</h2>
 				</div>
-				<form class="card-form" action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST">
+				<form class="card-form" action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST" id="card-form-id">
 					<input type=hidden name='captcha_settings' value='{"keyname":"leadform","fallback":"true","orgId":"00D5g00000BjEwz","ts":""}'>
 					<input type=hidden name="oid" value="00D5g00000BjEwz">
 					<input type=hidden name="retURL" value="https://leadform2.herokuapp.com">
@@ -89,19 +89,17 @@
 					<div class="action">
 						<input type="submit" name="submit" class="action-button">
 					</div>
+					<script>
+					document.getElementById('card-form-id').onsubmit = function () {
+					    if (!grecaptcha.getResponse()) {
+					         alert('Вы не заполнили recaptcha!');
+					         return false; // возвращаем false и предотвращаем отправку формы
+					    }
+					}
+					</script>
 				</form>
 			</div>
 		</div>
 		<div class="text-danger" id="recaptchaError"></div>
-		<script>
-			function check() {
-			if (grecaptcha.getResponse() == "") {
-    			alert("Подтвердите, что Вы не являетесь роботом!");
-    			return false;
-			} else {
-    			alert("Спасибо что прошли проверку!");
-    			return true;
-			}}
-		</script>	
 	</body>
 </html>
