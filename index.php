@@ -9,19 +9,15 @@ function pg_connection_string_from_database_url() {
 # Here we establish the connection. Yes, that's all.
 $pg_conn = pg_connect(pg_connection_string_from_database_url());
 
-print(pg_connection_string_from_database_url());
-
 # Now let's use the connection for something silly just to prove it works:
 $result = pg_query($pg_conn, "SELECT name, productcode FROM salesforce.product2");
 
-print "<pre>\n";
 if (!pg_num_rows($result)) {
   print("Your connection is working, but your database is empty.\nFret not. This is expected for new apps.\n");
 } else {
   print "Tables in your database:\n";
   while ($row = pg_fetch_row($result)) { print("- $row[0], $row[1]\n"); }
 }
-print "\n";
 ?>
 
 
@@ -76,38 +72,17 @@ print "\n";
 					</div>
 					<div class="input">
 						<select id="00N5g00000OghtZ" name="00N5g00000OghtZ" title="Product" class="input-field">
-							<option value="HK007A1">Carpets Hyundai</option>
-							<option value="HK008A2">Carpets Kia</option>
-							<option value="L005A1">Carpets Lada</option>
-							<option value="R008A1">Carpets Renault</option>
-							<option value="VAG010A2">Carpets Skoda</option>
-							<option value="VAG009A1">Carpets Volkswagen</option>
-							<option value="VAG007E4">CFNA</option>
-							<option value="VAG008E5">CFNB</option>
-							<option value="VAG005E2">CFW</option>
-							<option value="VAG006E3">CWVA</option>
-							<option value="VAG004E1">CZCA</option>
-							<option value="HK006E2">G4FG</option>
-							<option value="HK005E1">G4LC</option>
-							<option value="R007E3">H4M</option>
-							<option value="HK003C3">Hyundai Accent</option>
-							<option value="HK004C4">Hyundai Solaris</option>
-							<option value="R006E2">K4M</option>
-							<option value="R005E1">K7M</option>
-							<option value="HK001C1">Kia Rio</option>
-							<option value="HK002C2">Kia Rio X-Line</option>
-							<option value="L001C1">Lada Vesta</option>
-							<option value="L002C2">Lada Xray</option>
-							<option value="MI001A1">Phone holder Xiaomi</option>
-							<option value="R001C1">Renault Logan</option>
-							<option value="R002C2">Renault Logan Stepway</option>
-							<option value="R003C3">Renault Sandero</option>
-							<option value="R004C4">Renault Sandero Stepway</option>
-							<option value="VAG003C3">Skoda Rapid</option>
-							<option value="L004E2">VAZ-21129</option>
-							<option value="L003E1">VAZ-21179</option>
-							<option value="VAG002C2">Volkswagen Polo 2021</option>
-							<option value="VAG001C1">Volkswagen Polo Sedan</option>
+							<?php while ($row = pg_fetch_row($result)) : ?>
+								<option value="$row[1]">$row[0]</option>
+							<?php endwhile ;?>
+
+
+							<?/*php
+								while ($row = pg_fetch_row($result)) { 
+									print("- $row[0], $row[1]\n"); 
+								}
+							*/?>
+							
 						</select>
 						<label>Product:</label>
 					</div>
