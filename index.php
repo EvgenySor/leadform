@@ -15,8 +15,8 @@ $result = pg_query($pg_conn, "SELECT name, productcode FROM salesforce.product2"
 if (!pg_num_rows($result)) {
   print("Your connection is working, but your database is empty.\nFret not. This is expected for new apps.\n");
 } else {
-  print "Tables in your database:\n";
-  while ($row = pg_fetch_row($result)) { print("- $row[0], $row[1]\n"); }
+  //print "Tables in your database:\n";
+  //while ($row = pg_fetch_row($result)) { print("- $row[0], $row[1]\n"); }
 }
 ?>
 
@@ -72,11 +72,13 @@ if (!pg_num_rows($result)) {
 					</div>
 					<div class="input">
 						<select id="00N5g00000OghtZ" name="00N5g00000OghtZ" title="Product" class="input-field">
-							
+							<?/*php while ($row = pg_fetch_row($result)) : ?>
+								<option value="<?print($row[1]);?>"><?print("$row[0]");?></option>
+							<?php endwhile ;?*/>
 
 							<?php
 								while ($row = pg_fetch_row($result)) { 
-									print("$row[0]"); 
+									print("<option>" . "$row[0]" . "</option>"); 
 								}	
 							?>
 
