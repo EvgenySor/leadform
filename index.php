@@ -73,7 +73,7 @@ if (!pg_num_rows($result)) {
 					<div class="input">
 						<select id="00N5g00000OghtZ" name="00N5g00000OghtZ" title="Product" class="input-field">
 							<?php while ($row = pg_fetch_row($result)) : ?>
-								<option value="<?=$row[1];?>"><?=$row[0];?></option>
+								<option value="<?print($row[1]);?>"><?print("$row[0]");?></option>
 							<?php endwhile ;?>
 
 
