@@ -78,7 +78,7 @@ if (!pg_num_rows($result)) {
 
 							<?php
 								while ($row = pg_fetch_row($result)) { 
-									print('<option value="' + '$row[1]"' + '$row[0]</option>'); 
+									print("<option>$row[0]</option>"); 
 								}	
 							?>
 
